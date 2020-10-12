@@ -49,4 +49,9 @@ export class FormArray1Component implements OnInit {
       queryParams: { data: JSON.stringify(data) },
     });
   }
+
+  remove(i)
+  {
+    this.arr.removeAt(i);
+  }
 }

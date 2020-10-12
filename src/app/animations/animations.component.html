@@ -1,0 +1,103 @@
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="Yes" (click)="yes()">Yes</mat-button-toggle>
+    <mat-button-toggle value="No" (click)="No()">No</mat-button-toggle>
+  </mat-button-toggle-group>
+  &nbsp;&nbsp;
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" *ngIf= "btn2">
+    <mat-button-toggle value="Yes" (click)="yes1()">Yes</mat-button-toggle>
+    <mat-button-toggle value="No" (click)="No1()">No</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <form [formGroup]="firstForm"  *ngIf= "form1">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your Name</mat-label>
+      <input matInput placeholder="Enter your name" formControlName="name">
+      <mat-error *ngIf="
+      firstForm
+            .get('name')
+            .hasError('required')
+        ">
+        Please enter your name</mat-error>
+      <mat-error *ngIf="
+      firstForm
+            .get('name')
+            .hasError('minlength') &&
+            !firstForm
+            .get('name')
+            .hasError('pattern')
+        ">
+        please enter atleast 3 characters</mat-error>
+      <mat-error *ngIf="
+      firstForm
+            .get('name')
+            .hasError('pattern')
+        ">
+        Please enter only characters</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your Email Id</mat-label>
+      <input matInput placeholder="Enter your Email-Id" formControlName="email">
+      <mat-error *ngIf="
+      firstForm
+          .get('email')
+          .hasError('required')
+      ">
+        Please enter your Email-id</mat-error>
+      <mat-error *ngIf="
+      firstForm
+          .get('email')
+          .hasError('email')
+      ">
+        Please enter valid Email-Id</mat-error>
+    </mat-form-field>
+    <br>
+    <!-- <button mat-raised-button color="primary" [disabled]="firstForm.invalid" id="btn">Confirm</button> -->
+  </form>
+
+
+  <form [formGroup]="secondForm" id="frm2" *ngIf= "form2">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your Name</mat-label>
+      <input matInput placeholder="Enter your name" formControlName="name1">
+      <mat-error *ngIf="
+      secondForm
+            .get('name1')
+            .hasError('required')
+        ">
+        Please enter your name</mat-error>
+      <mat-error *ngIf="
+      secondForm
+            .get('name1')
+            .hasError('minlength') &&
+            !secondForm
+            .get('name1')
+            .hasError('pattern')
+        ">
+        please enter atleast 3 characters</mat-error>
+      <mat-error *ngIf="
+      secondForm
+            .get('name1')
+            .hasError('pattern')
+        ">
+        Please enter only characters</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your Mobile Number</mat-label>
+      <input matInput placeholder="Enter your Mobile Number" formControlName="mobile">
+      <mat-error *ngIf="
+      secondForm
+          .get('mobile')
+          .hasError('required')
+      ">
+        Please enter your Mobile Number</mat-error>
+    </mat-form-field>
+    <br>
+    <!-- <button mat-raised-button color="primary" [disabled]="secondForm.invalid" id="btn">Confirm</button> -->
+</form>
+
+<button mat-raised-button color="primary"  id="btn" [disabled]="secondForm.invalid&&firstForm.invalid&&no">Confirm</button>
+
+
+  

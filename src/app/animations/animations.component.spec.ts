@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Formarray3Component } from './formarray3.component';
+import { AnimationsComponent } from './animations.component';
 
-describe('Formarray3Component', () => {
-  let component: Formarray3Component;
-  let fixture: ComponentFixture<Formarray3Component>;
+describe('AnimationsComponent', () => {
+  let component: AnimationsComponent;
+  let fixture: ComponentFixture<AnimationsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Formarray3Component ]
+      declarations: [ AnimationsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Formarray3Component);
+    fixture = TestBed.createComponent(AnimationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

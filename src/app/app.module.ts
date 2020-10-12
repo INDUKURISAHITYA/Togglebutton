@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule ,routers} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialComponent } from './material/material.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatModule,Material} from './mat/mat.module';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -15,7 +15,8 @@ import {ServiceService} from './service.service';
 import { GetserviceComponent} from './getservice/getservice.component';
 import { ValidatorService } from './validator.service';
 import { Formarray2Component } from './formarray2/formarray2.component';
-import { Formarray3Component } from './formarray3/formarray3.component';
+import { FormArray1Component } from './form-array1/form-array1.component';
+import { AnimationsComponent } from './animations/animations.component';
 
 
 
@@ -29,7 +30,8 @@ import { Formarray3Component } from './formarray3/formarray3.component';
     routers,
     GetserviceComponent,
     Formarray2Component,
-    Formarray3Component
+    FormArray1Component,
+    AnimationsComponent
   ],
   imports: [
     BrowserModule,

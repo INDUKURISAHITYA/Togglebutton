@@ -2,9 +2,9 @@
 
     <h2>Welocome</h2>
      
-       <div formArrayName="arr" *ngFor="let a of myForm.get('arr').value; let i = index">
+       <div formArrayName="arr" *ngFor="let a of myForm.get('arr')['controls']; let i = index">
         <div [formGroupName]="i" style="margin-bottom: 20px;">
-  
+        <button mat-raised-button (click)="remove(i)">Remove</button>
     <mat-form-field appearance="fill">
         <mat-label>Enter your Name</mat-label>
         <input matInput placeholder="Enter your name" formControlName="name" >
@@ -20,10 +20,12 @@
         <mat-error *ngIf="arr.controls[i].get('pay').hasError('pattern')">please enter only digits</mat-error>
         <mat-error *ngIf="(arr.controls[i].get('pay').hasError('minlength')||arr.controls[i].get('pay').hasError('maxlength')) && !arr.controls[i].get('pay').hasError('pattern')">Mobile Number should be 10 digit</mat-error>
    </mat-form-field>
+
     </div>
     </div>
- 
+      
    <br>
     <button mat-raised-button type="button" (click)="addItem()" style="margin-right: 5px;">Add</button>
+    
     <button  mat-raised-button type="submit" [disabled]="myForm.invalid">Submit</button>
 </form>

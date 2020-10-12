@@ -1,12 +1,9 @@
-<form [formGroup]="myForm" autocomplete='off' >
-
-    <h1 [style.color]="'green'">Welocome</h1>
-
-       
-    <mat-form-field appearance="fill">
-        <mat-label>Enter your Name</mat-label>
-        <input matInput placeholder="Enter your name" formControlName="name" >
-        <mat-error  *ngIf="
+<form [formGroup]="myForm" autocomplete='off' (ngSubmit)="onSubmit()">
+  <h1 [style.color]="'green'">Welocome</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your Name</mat-label>
+    <input matInput placeholder="Enter your name" formControlName="name">
+    <mat-error *ngIf="
         myForm
           .get('name')
           .hasError('required')
@@ -21,19 +18,76 @@
           .hasError('pattern')
       ">
       please enter atleast 3 characters</mat-error>
-    <mat-error  *ngIf="
+    <mat-error *ngIf="
     myForm
           .get('name')
           .hasError('pattern')
       ">
       Please enter only characters</mat-error>
-
-    </mat-form-field>
-    <br>
+      <mat-error *ngIf="
+      myForm
+            .get('name')
+            .hasError('forbidden')
+        ">password should not be entered.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your Email Id</mat-label>
+    <input matInput placeholder="Enter your Email-Id" formControlName="email">
+    <mat-error *ngIf="
+      myForm
+        .get('email')
+        .hasError('required')
+    ">
+      Please enter your Email-id</mat-error>
+    <mat-error *ngIf="
+  myForm
+        .get('email')
+        .hasError('email')
+    ">
+      Please enter valid Email-Id</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-checkbox formControlName="checkBox">Click on me</mat-checkbox>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>password</mat-label>
+    <input matInput placeholder="Enter your password" formControlName="password">
+    <mat-error *ngIf="
+      myForm
+        .get('password')
+        .hasError('required')
+    ">
+      Please enter your password</mat-error>
+      <mat-error *ngIf="
+      myForm
+        .get('password')
+        .hasError('pattern')
+    ">
+      password should contain eight characters including one uppercase letter, one lowercase letter, and one number or special character.</mat-error>
+  </mat-form-field>
+  <br>
     <mat-form-field appearance="fill">
-        <mat-label>Enter your Mobile Number</mat-label>
-        <input matInput placeholder="Enter your Mobile Number" formControlName="mobile" >
-        <mat-error  *ngIf="
+    <mat-label>Confirm password</mat-label>
+    <input matInput placeholder="Enter your password" formControlName="confirmPassword">
+    <mat-error *ngIf="
+      myForm
+        .get('confirmPassword')
+        .hasError('required')
+    ">
+      Please re-enter your password</mat-error>
+  </mat-form-field>
+  <mat-error *ngIf="
+  myForm
+    .hasError('misMatch')
+">
+ password doesn't match</mat-error>
+
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your Mobile Number</mat-label>
+    <input matInput placeholder="Enter your Mobile Number" formControlName="mobile">
+    <mat-error *ngIf="
         myForm
           .get('mobile')
           .hasError('required')
@@ -48,14 +102,13 @@
           .hasError('pattern')
       ">
       please enter 10 digit Mobile Number</mat-error>
-    <mat-error  *ngIf="
+    <mat-error *ngIf="
     myForm
           .get('mobile')
           .hasError('pattern')
       ">
       Please enter only digits</mat-error>
-   </mat-form-field>
- 
-   <br>
-    <button  mat-raised-button type="submit" color="primary"[disabled]="myForm.invalid">Log-in</button>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button type="submit" color="primary" [disabled]="myForm.invalid">Log-in</button>
 </form>
